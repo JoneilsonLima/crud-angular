@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, catchError, of, tap } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
 import { CoursesService } from '../services/courses.service';
@@ -15,7 +15,13 @@ export class CoursesComponent implements OnInit {
   public displayedColumns: string[] = ['name', 'category'];
 
   constructor(private service: CoursesService) {
-    this.courses$ = this.service.list();
+    this.courses$ = this.service.list()
+    .pipe(
+      catchError((error) => {
+        console.log(error);
+        return of([]);
+      })
+    )
   }
 
   ngOnInit(): void {
