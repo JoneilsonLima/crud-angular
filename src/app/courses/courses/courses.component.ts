@@ -1,9 +1,9 @@
 import { Observable, catchError, of, tap } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
 import { Course } from '../models/course';
 import { CoursesService } from '../services/courses.service';
-import { MatDialog } from '@angular/material/dialog';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-courses',

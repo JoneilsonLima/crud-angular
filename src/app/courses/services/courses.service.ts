@@ -18,7 +18,7 @@ export class CoursesService {
       first(),
       delay(5000),
       tap({
-        next: (res) => console.log(res),
+        next: (res: Course[]) => console.log(res),
       })
     );
   }
